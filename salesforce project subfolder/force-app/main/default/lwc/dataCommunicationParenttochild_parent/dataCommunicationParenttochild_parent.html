@@ -1,0 +1,15 @@
+<template>
+    <template if:true={firstName}>
+        <lightning-card title="Details of Data Recieved from Child">
+            <div>First Name:{firstName}</div>
+            <div>Last Name:{lastName}</div>
+        </lightning-card>
+
+    </template>
+    <lightning-card title="Parent Component">
+        <c-data-communication-parenttochild_child
+            ongetsearchevent={handleEvent}></c-data-communication-parenttochild_child>
+    </lightning-card>
+
+
+</template>

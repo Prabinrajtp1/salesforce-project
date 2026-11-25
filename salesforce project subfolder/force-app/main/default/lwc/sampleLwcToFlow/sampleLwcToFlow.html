@@ -1,0 +1,14 @@
+<template>
+    <Lightning-card>
+        <lightning-input label="Enter Amount" type="number" value={amount} onchange={handleAmount}></lightning-input>
+        <lightning-input label="Discount" type="number" value={discount} onchange={handleDiscount}></lightning-input>
+        <template if:true={finalAmount}>
+            <div>Final Result:{finalAmount}</div>
+        </template>
+        <template if:false={finalAmount}>
+            <div>Error message:{errormsg}</div>
+        </template>
+
+    </Lightning-card>
+
+</template>

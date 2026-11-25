@@ -1,0 +1,37 @@
+<template>
+
+    <lightning-card title="WhatsApp Integration" icon-name="standard:messaging_conversation">
+
+        <div class="slds-p-around_medium">
+
+            <lightning-input label="Customer Name" value={name} onchange={handleName} required>
+            </lightning-input>
+
+            <lightning-input label="Phone Number" type="tel" value={phoneNumber} onchange={handlePhone}
+                placeholder="919605790030" required>
+            </lightning-input>
+
+            <lightning-input label="Order Number" value={orderNumber} onchange={handleOrderNumber} required>
+            </lightning-input>
+
+            <lightning-input label="Order Date" type="date" value={orderDate} onchange={handleDate} required>
+            </lightning-input>
+
+            <div class="slds-m-top_medium">
+
+                <lightning-button label="Send WhatsApp Message" variant="brand" onclick={handleSend}
+                    disabled={isLoading}>
+                </lightning-button>
+
+                <template if:true={isLoading}>
+                    <lightning-spinner alternative-text="Sending message..." size="small">
+                    </lightning-spinner>
+                </template>
+
+            </div>
+
+        </div>
+
+    </lightning-card>
+
+</template>

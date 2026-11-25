@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="Contacts and Related Tasks">
+
+        <template lwc:if={contacts}>
+            <template for:each={contacts} for:item="contact">
+
+                <div key={contact.Id} class="slds-box slds-m-around_small">
+
+                    <p><strong>Contact:</strong> {contact.Name}</p>
+                    <p><strong>Email:</strong> {contact.Email}</p>
+                    <p><strong>Phone:</strong> {contact.Phone}</p>
+                    <p><strong>Owner:</strong> {contact.Owner.Name}</p>
+                    <p><strong>Total Tasks:</strong> {contact.taskCount}</p>
+
+                    <template for:each={contact.Tasks} for:item="task">
+                        <div key={task.Id} class="slds-p-around_x-small">
+
+                            <p>Task: {task.Subject}</p>
+                            <p>Status: {task.Status}</p>
+                            <p>Due Date: {task.ActivityDate}</p>
+
+                        </div>
+                    </template>
+
+                </div>
+
+            </template>
+        </template>
+
+        <template lwc:if={error}>
+            <p class="slds-text-color_error slds-p-around_medium">
+                Unable to load Contacts and Tasks.
+            </p>
+        </template>
+
+    </lightning-card>
+</template>

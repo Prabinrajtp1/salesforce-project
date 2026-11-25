@@ -1,0 +1,53 @@
+<template>
+    <lightning-card title="Acccount Details" icon-name="standard:account">
+        <div class="slds-var-p-around_medium">
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th scope="col">
+                            <div class="slds-truncate">Account Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate">Account Phone</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate">Account Industry</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate">Account Rating</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="slds-truncate">{getName}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">{getPhone}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">{getIndustry}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">{getRating}</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+        <lightning-card title="Contact Associated with Account" icon-name="standard:contact">
+
+            <lightning-datatable key-field="Id" data={contacts} columns={columns} onrowselection={handleRowSelection}>
+                >
+            </lightning-datatable>
+
+        </lightning-card>
+        <lightning-button label="Delete Selected" variant="destructive" onclick={handleDelete} disabled={disableDelete}>
+        </lightning-button>
+    </lightning-card>
+
+</template>

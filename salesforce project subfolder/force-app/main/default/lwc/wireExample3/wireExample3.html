@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Wire Example 3 - Calling Apex Method">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Account Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Industry</th>
+                    <th scope="col">Rating</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <template if:true={accounts.data}>
+                    <template for:each={accounts.data} for:item="acc">
+                        <tr key={acc.Id}>
+                            <td>{acc.Name}</td>
+                            <td>{acc.Phone}</td>
+                            <td>{acc.Industry}</td>
+                            <td>{acc.Rating}</td>
+                        </tr>
+                    </template>
+                </template>
+
+                <template if:true={accounts.error}>
+                    <tr>
+                        <td colspan="4">
+                            Error loading Account records.
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </lightning-card>
+</template>

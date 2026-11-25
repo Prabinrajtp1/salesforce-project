@@ -1,0 +1,70 @@
+<template>
+    <lightning-input type="checkbox" label="Show only First Employee Details" onchange={checkFlag}>
+    </lightning-input>
+
+    <!-- All details: hidden when the checkbox is checked -->
+    <template if:false={flag}>
+        <lightning-card title="All Employees">
+            <div class="slds-var-p-around_small">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Rank</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template iterator:emp={employeeList}>
+                            <tr key={emp.value.Id}>
+                                <td>{emp.value.FirstName}</td>
+                                <td>{emp.value.LastName}</td>
+                                <td>{emp.value.Email}</td>
+                                <td>{emp.value.Phone}</td>
+                                <td>{emp.value.Age}</td>
+                                <td>{emp.value.Rank}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </lightning-card>
+    </template>
+
+    <!-- First employee only: shown when the checkbox is checked -->
+    <template if:true={flag}>
+        <lightning-card title="First Employee">
+            <div class="slds-var-p-around_small">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Rank</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template iterator:emp={employeeList}>
+                            <template if:true={emp.first}>
+                                <tr key={emp.value.Id}>
+                                    <td>{emp.value.FirstName}</td>
+                                    <td>{emp.value.LastName}</td>
+                                    <td>{emp.value.Email}</td>
+                                    <td>{emp.value.Phone}</td>
+                                    <td>{emp.value.Age}</td>
+                                    <td>{emp.value.Rank}</td>
+                                </tr>
+                            </template>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </lightning-card>
+    </template>
+</template>

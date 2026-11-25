@@ -1,0 +1,33 @@
+<apex:page sidebar="false" renderAs="pdf" standardController="Account" >
+    <html>
+      <head>
+          <style>
+              @page {
+              size: A4 portrait;
+              margin: 12mm 15mm 12mm 15mm;
+              @bottom-right {
+              content: "Page " counter(page) " of " counter(pages);
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 8px;
+              color: #000000;
+               }
+             }
+              
+            table
+              {
+              width: 100%; 
+              border-collapse: collapse;
+
+              }
+         <table >
+         <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+        </tr>
+        </table>
+              
+          </style>
+        </head>
+    </html>
+</apex:page>
